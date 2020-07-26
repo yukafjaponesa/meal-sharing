@@ -34,7 +34,7 @@ window.handleHomeRequest = () => {
 </div>
 </header>
 
-<div class="all">
+<!-- <div class="all"> -->
   <!-- <div class="menu">
     <a class="links" href="meals" data-navigo>Meals</a>
     <a class="links" href="reservations" data-navigo>Reservations</a>
@@ -53,7 +53,7 @@ window.handleHomeRequest = () => {
     </a>
   </div>
 
-</div> <!-- end of all -->
+<!-- </div> -->  <!-- end of all -->
 
 </div> <!-- end of body -->
   `;

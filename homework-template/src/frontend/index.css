@@ -21,6 +21,8 @@
 .pics-in-home{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  
   margin-right: auto;
   float: right;
   height: 300px;

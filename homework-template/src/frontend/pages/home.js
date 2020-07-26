@@ -35,11 +35,11 @@ window.handleHomeRequest = () => {
 </header>
 
 <div class="all">
-  <div class="menu">
+  <!-- <div class="menu">
     <a class="links" href="meals" data-navigo>Meals</a>
     <a class="links" href="reservations" data-navigo>Reservations</a>
     <a class="links" href="reviews" data-navigo>Reviews</a>
-  </div>
+  </div> -->
 
   <div class="pics-in-home">
     <a href="meals">

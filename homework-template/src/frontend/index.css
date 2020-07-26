@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.all {
+    display: flex;
+    justify-content: center;
+   border: solid red;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: solid blue;
+}
+
+.pics-in-home{
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+  float: right;
+  height: 300px;
+  width: 400px;
+  border: solid orange;
+}
+
+.img-in-home {
+  height: auto;
+  width: 400px;
+}
+
+.body {
+  width: 1201px;
+  height: auto;
+  /*background-color: gray;*/
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.top{
+  width: auto;
+  height: auto;
+  /*background-color: white;*/
+  display: flex;
+  /*border: solid blue;*/
+  justify-content: space-evenly;
+}
+
+.ul {
+  margin-right: auto;
+  /*border: solid green;*/
+}
+
+.curry-pics-in-meals {
+  height: auto;
+  width: 400px;
+  margin-left: auto;
+  /*border: solid red;*/
+  float: right;
+}
+
+.pics-in-rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.pics-in-meals {
+  display: flex;
+  height: 300px;
+  width: 400px;
+  /*border: solid orange;*/
+}
+
+.img-in-meals {
+  height: auto;
+  width: 400px;
+  /*border: solid pink;*/
+}
+
+.booking-form {
+  /*border: solid blue;*/
+  text-align: justify;
+  text-align-last: justify;
+  margin-left: 50px;
+}
+
+.form-and-pic {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  /*border: solid green;*/
+}
+
+.center-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.meal-detail {
+  /*border: solid orange;*/
+}
+
+.ul-in-reservations {
+  /*border: solid green;*/
+  margin-right: auto;
+}
+
+.dine-img-in-reservations {
+  /*border: solid pink;*/
+}

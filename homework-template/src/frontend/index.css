@@ -6,7 +6,7 @@
 .all {
     display: flex;
     justify-content: center;
-   border: solid red;
+   /*border: solid red;*/
    margin-left: auto;
    margin-right: auto;
 }
@@ -15,7 +15,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  border: solid blue;
+  /*border: solid blue;*/
 }
 
 .pics-in-home{
@@ -25,7 +25,7 @@
   float: right;
   height: 300px;
   width: 400px;
-  border: solid orange;
+  /*border: solid orange;*/
 }
 
 .img-in-home {

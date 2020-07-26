@@ -8,7 +8,7 @@ window.handleHomeRequest = () => {
     <div class="row">
       <div class="col-sm-8 col-md-7 py-4">
         <h4 class="text-white">About</h4>
-        <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+        <p class="text-muted">This app is to share tasty food. You can make a booking and make your own meal to share.</p>
       </div>
       <div class="col-sm-4 offset-md-1 py-4">
         <h4 class="text-white">Contact</h4>
@@ -42,9 +42,15 @@ window.handleHomeRequest = () => {
   </div>
 
   <div class="pics-in-home">
-    <img class="img-in-home" src="https://images.kitchenstories.io/recipeImages/01_03_OriginalItalienischePizza_titlePicture/01_03_OriginalItalienischePizza_titlePicture-large-landscape-150.jpg" alt="Italian Pizza">
-    <img class="img-in-home" src="https://clavertonhotel.co.uk/wp-content/uploads/2015/10/reservations-crop.jpg" alt="Booking note">
-    <img class="img-in-home" src="https://www.feedbackexpress.com/wp-content/uploads/2019/10/five-star-feedback.jpg" alt="review">
+    <a href="meals">
+      <img class="img-in-home" src="https://images.kitchenstories.io/recipeImages/01_03_OriginalItalienischePizza_titlePicture/01_03_OriginalItalienischePizza_titlePicture-large-landscape-150.jpg" alt="Italian Pizza">
+    </a>
+    <a href="reservations">
+      <img class="img-in-home" src="https://clavertonhotel.co.uk/wp-content/uploads/2015/10/reservations-crop.jpg" alt="Booking note">
+    </a>
+    <a href="reviews">
+      <img class="img-in-home" src="https://www.feedbackexpress.com/wp-content/uploads/2019/10/five-star-feedback.jpg" alt="review">
+    </a>
   </div>
 
 </div> <!-- end of all -->

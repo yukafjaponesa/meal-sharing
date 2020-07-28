@@ -42,20 +42,15 @@ router.post("/", async (req, res) => {
     // };
 
     //const addReserve = await knex("reservation").insert(addNewReservations);
-
-    const myNumberOfGuests = req.body.number_of_guests;
-    const myMealId = req.body.meal_id;
-    const myName = req.body.name;
-    const myCreatedAt = req.body.createdAt;
-    const myEmail = req.body.email;
-
+    const { number_of_guests, meal_id, name, createdAt, email } =req.body;
+    console.log(req.body);
     const newId = await knex('reservation').insert(
       {
-        number_of_guests: myNumberOfGuests,
-        meal_id: myMealId,
-        name: myName,
-        createdAt: myCreatedAt,
-        email: myEmail
+        number_of_guests: number_of_guests,
+        meal_id: meal_id,
+        name: name,
+        createdAt: createdAt,
+        email: email
       }
     );
     res.json(`created new reservation with id ${newId}`);

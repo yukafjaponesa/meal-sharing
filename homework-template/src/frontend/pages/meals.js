@@ -30,7 +30,7 @@ window.handleMealsRequest = async () => {
 
 const mealsResponse = await fetch('/api/meals');
 const meals = await mealsResponse.json();
-console.log(typeof meals); // is object
+//console.log(typeof meals); // is object
 
 const ul = document.querySelector('ul');
 meals.forEach(meal => {

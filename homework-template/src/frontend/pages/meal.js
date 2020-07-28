@@ -88,7 +88,7 @@ function getMealWithId(mealFromDB) {
            <input type="hidden" id="createdAt" name="createdAt" value="currentDate">
 
            <div class="center-btn" class="bootstrap-btn">
-            <input  type="button" class="btn btn-primary" value="Make a booking">
+            <input  type="submit" class="btn btn-primary" value="Make a booking">
           </div>
          </form>
 

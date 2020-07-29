@@ -72,7 +72,7 @@ function getMealWithId(mealFromDB) {
         <div class="booking-form">
          <form action="../../api/reservations" method="post">
            <label for="name">Name:</label>
-           <input type="text" id="name" name="name" placeholder="Your full name">
+           <input type="text" id="name" name="name" placeholder="Your full name"> <!-- name="" should be same with backend db name -->
            <br><br>
 
            <label for="email">Email:</label>

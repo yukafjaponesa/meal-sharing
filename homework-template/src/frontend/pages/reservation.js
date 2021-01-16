@@ -1,7 +1,14 @@
 window.handleReservationRequest = params => {
+
+  const getReservationResponse = await fetch(`/api/reservations/${params.id}`);
+  const reservations = await getReservationResponse.json();
+  const reservation = reservations[0];
+
   document.body.innerHTML = `
   <h1>Reservation with id ${params.id}</h1>
-    <form action="../../api/reservations" method="post">
+
+  
+    <form action="../../api/reservations" method="get">
     <label for="number_of_guests">number_of_guests:</label>
     <input type="text" id="number_of_guests" name="number_of_guests">
     <br><br>
@@ -25,4 +32,5 @@ window.handleReservationRequest = params => {
   fetch("api/reservation")
     .then(res => res.json())
     .then(reservation => console.log(reservation));
+
 };

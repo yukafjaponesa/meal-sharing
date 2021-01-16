@@ -1,15 +1,9 @@
 const express = require("express");
-//const app = express();
-require('express-async-errors');
+const app = express();
+//require('express-async-errors');
 const router = express.Router();
 const knex = require("../database");
 
-router.get('/', async (req, res) => {
-  const allReservations = await knex.select('*').table('reservation');
-  res.json(allReservations);
-})
-
-/*
 router.get("/", async (req, res) => {
   const {
     reservations,
@@ -30,9 +24,7 @@ router.get("/", async (req, res) => {
     throw error;
   }
 });
-*/
 
-/*
 router.post("/", async (req, res) => {
   try {
     // knex syntax for selecting things. Look up the documentation for knex for further info
@@ -100,6 +92,6 @@ router.delete('/:id', async function (req, res) {
     await knex("reservation").where({ id }).del();
     res.send(`Reservation with id ${id} is deleted`);
 });
-*/
+
 
 module.exports = router;

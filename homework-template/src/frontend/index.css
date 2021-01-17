@@ -20,11 +20,12 @@
 
 .pics-in-home{
   flex-direction: column;
-  display: block;
+  display: flex;
+  flex-direction: row;
   margin-left: auto;
   margin-right: auto;
   height: 300px;
-  width: 400px;
+
   /*border: solid orange;*/
 }
 

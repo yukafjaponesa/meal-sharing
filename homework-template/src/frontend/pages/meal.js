@@ -45,16 +45,36 @@ function getMealWithId(mealFromDB) {
   window.handleMealRequest = async(params)=> {
     const getMealResponse = await fetch(`/api/meals/${params.id}`);
     const meals = await getMealResponse.json();
-    const meal = meals[0];
+    const mealById = meals[0];
+    console.log({mealById});
 
     const getReview = await fetch(`/api/reviews`);
     const reviewToRender = await getReview.json();
+    const reviewById = reviewToRender.find(r => r.meal_id === r.id);
+    console.log('reviewById', reviewById);
+
     fetch(`/api/meals/${params.id}`)
       .then(res => res.json())
       .then(meal => {
-        meal.forEach(m => {
-          m.getReview = reviewToRender.filter(reviewToRender => meal.id === reviewToRender.meal_id);
-          return m;
+        meal.map(m => {
+          m.getReview = reviewToRender.filter(r => {
+            r.meal_id === meal.id;
+            //return r;
+            console.log('r for review of the meal', r);
+            const li = document.createElement('li');
+            const ul = document.getElementById('review-content');
+            li.innerHTML =
+            `
+              Meal ID: ${r.meal_id}
+              Starts: ${r.numberOfStars}
+              ${r.content}
+              Review created at: ${r.createdAt}
+            `;
+            ul.appendChild(li);
+          });
+
+          //meal.id === r.meal_id
+
         })
       })
 
@@ -63,10 +83,10 @@ function getMealWithId(mealFromDB) {
      <div class="body">
        <h1>Meal with id ${params.id}</h1>
 
-       <div class="meal-detail">ID: ${meal.id}</div>
-       <div class="meal-detail">Title: ${meal.title}</div>
-       <div class="meal-detail">Description: ${meal.description}</div>
-       <div class="meal-detail">Price: ${meal.price}</div>
+       <div class="meal-detail">ID: ${mealById.id}</div>
+       <div class="meal-detail">Title: ${mealById.title}</div>
+       <div class="meal-detail">Description: ${mealById.description}</div>
+       <div class="meal-detail">Price: ${mealById.price}</div>
 
        <div class="form-and-pic">
         <div class="booking-form">
@@ -99,9 +119,16 @@ function getMealWithId(mealFromDB) {
         </div> <!-- end of booking-form -->
 
         <div>
-          <img id="meal-pic" class="img-in-meals" src="/pages/pics/${meal.title}.jpg" alt="${meal.title}">
+          <img id="meal-pic" class="img-in-meals" src="/pages/pics/${mealById.title}.jpg" alt="${mealById.title}">
         </div> <!-- end of meal-pic -->
         </div> <!-- end of form-and-pic -->
+
+
+        <!-- <div>${mealById.getReview}</div> -->
+
+        <div>
+          <ul id="review-content"></ul>
+        </div>
 
 
       </div> <!-- end of body -->

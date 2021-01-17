@@ -13,12 +13,13 @@ router.get("/", async (req, res) => {
 
   try {
     // knex syntax for selecting things. Look up the documentation for knex for further info
-    const allReviews = await knex.select("*").table("review");
+    let allReviews = await knex.select("*").table("review");
     res.json(allReviews);
   } catch (error) {
     throw error;
   }
 });
+
 
 router.post("/", async (req, res) => {
   try {

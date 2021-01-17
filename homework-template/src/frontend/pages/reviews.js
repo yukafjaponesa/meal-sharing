@@ -1,16 +1,23 @@
 window.handleReviewsRequest = async () => {
   document.body.innerHTML = `
-  <h1>Reviews</h1>
-  <ul></ul>
+  <div class="body">
+    <h1>Reviews</h1>
+    <ul></ul>
+  </div> <!-- end of body -->
   `;
 
 const reviewsResponse = await fetch('/api/reviews');
 const reviews = await reviewsResponse.json();
 
-const ul = document.querySelector('ul');
 reviews.forEach(review => {
+  const ul = document.querySelector('ul');
   const li = document.createElement('li');
-  li.innerHTML = Object.entries(review); 
+  //li.innerHTML = Object.entries(review);
+  //li.innerHTML = review.meal_id;
+  li.innerHTML =
+  `
+    <a href="/review/${review.meal_id}">${review.numberOfStars} : ${review.content}</a>
+  `;
   ul.appendChild(li);
 })
 };

@@ -5,6 +5,7 @@ const knex = require("../database");
 
 router.get("/", async (req, res) => {
   const {
+    reviews,
     numberOfStars,
     content,
     meal_id,
@@ -12,7 +13,6 @@ router.get("/", async (req, res) => {
   } = req.query;
 
   try {
-    // knex syntax for selecting things. Look up the documentation for knex for further info
     let allReviews = await knex.select("*").table("review");
     res.json(allReviews);
   } catch (error) {
@@ -37,32 +37,13 @@ router.post("/", async (req, res) => {
       }
     )
 
-    // knex syntax for selecting things. Look up the documentation for knex for further info
-    // const {
-    //   title,
-    //   description,
-    //   meal_id,
-    //   stars,
-    //   createdAt
-    // } = req.body;
-    //
-    // const addNewRevies = {
-    //   title,
-    //   description,
-    //   meal_id,
-    //   stars,
-    //   createdAt
-    // };
-    //
-    // const addReview = await knex("review").insert(addNewRevies);
-    res.json(`created new review with id ${newId}`);
+  res.json(`created new review with id ${newId}`);
   } catch (error) {
     throw error;
   }
 });
 
 router.get('/:id', async function(req, res) {
-    //console.log(`params.id=${req.params.id}`);
     try {
       const thisReserve = await knex("review")
       .select("*")

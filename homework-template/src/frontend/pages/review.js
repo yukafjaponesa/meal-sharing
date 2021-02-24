@@ -1,5 +1,16 @@
-window.handleReviewRequest = params => {
+window.handleReviewRequest = async (params) => {
+
+  const getReviewResponse = await fetch(`/api/reviews/${params.id}`);
+  const review = await getReviewResponse.json();
+  console.log({review});
+
+  fetch("api/review")
+    .then(res => res.json())
+    .then(review => console.log(review));
+
   document.body.innerHTML = `
+  ${review.content}
+
   <h1>Review with id ${params.id}</h1>
     <form action="../../api/reviews" method="post">
     <label for="numberOfStars">numberOfStars:</label>
@@ -18,11 +29,9 @@ window.handleReviewRequest = params => {
     <input type="text" id="createdAt" name="createdAt">
     <br><br>
 
+    <div class="center-btn" class="bootstrap-btn">
     <input type="submit" value="Submit">
+    </div>
     </form>
     `;
-
-    fetch("api/review")
-      .then(res => res.json())
-      .then(review => console.log(review));
 };

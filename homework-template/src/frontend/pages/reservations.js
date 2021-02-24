@@ -17,7 +17,6 @@ window.handleReservationsRequest = async () => {
 
   const reservationsResponse = await fetch('/api/reservations');
   const reservations = await reservationsResponse.json();
-  console.log(reservations)
   const ul = document.querySelector('ul');
   reservations.forEach(reserve => {
       const li = document.createElement('li');
@@ -26,34 +25,3 @@ window.handleReservationsRequest = async () => {
   });
 
 };
-
-/*
-window.handleReservationsRequest = async () => {
-  document.body.innerHTML = `
-  <h1>Reservations</h1>
-  <ul></ul>
-  `;
-
-const reservationsResponse = await fetch('/api/reservations');
-const reservations = await reservationsResponse.json();
-
-const ul = document.querySelector('ul');
-reservations.forEach(reserve => {
-  const li = document.createElement('li');
-  li.innerHTML = Object.entries(reserve); //keys with keys values with values
-  // entries show both key & values
-
-  console.log(reserve);
-  ul.appendChild(li);
-})
-};
-*/
-
-/*
-SELECT * FROM mealsharing.reservation;
-
-SELECT meal.id, sum(number_of_guests) FROM meal
-LEFT JOIN reservation
-	ON meal.id = reservation.meal_id
-GROUP BY meal.id;
-*/

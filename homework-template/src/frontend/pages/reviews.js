@@ -8,9 +8,10 @@ window.handleReviewsRequest = async () => {
 
 const reviewsResponse = await fetch('/api/reviews');
 const reviews = await reviewsResponse.json();
+console.log({reviews});
 
+const ul = document.querySelector('ul');
 reviews.forEach(review => {
-  const ul = document.querySelector('ul');
   const li = document.createElement('li');
   //li.innerHTML = Object.entries(review);
   //li.innerHTML = review.meal_id;
@@ -18,6 +19,12 @@ reviews.forEach(review => {
   `
     <a href="/review/${review.meal_id}">${review.numberOfStars} : ${review.content}</a>
   `;
+  console.log({review});
   ul.appendChild(li);
 })
+};
+
+function currentDate() {
+  const d = new Date();
+  document.getElementById('createdAt').value = d.toDateString();
 };

@@ -30,7 +30,6 @@ window.handleMealsRequest = async () => {
 
 const mealsResponse = await fetch('/api/meals');
 const meals = await mealsResponse.json();
-//console.log(typeof meals); // is object
 
 const ul = document.querySelector('ul');
 meals.forEach(meal => {
@@ -38,50 +37,8 @@ meals.forEach(meal => {
   li.innerHTML = `<a href="/meal/${meal.id}">${meal.title}</a>`; //keys with keys values with values
   // entries show both key & values
 
-  console.log(meal);
   ul.appendChild(li);
 })
 };
 
-/*
-fetch('/api/meals')
-  .then(resposnse => response.json())
-  .then(meals => {
-    const ul = document.createElement('ul');
-    meals.forEach(e => {
-      cont li = document.createElement('li');
-      li.innerHTML = `<h1>${e.title}</h1>`;
-
-      ul.appendChild(li);
-    });
-    document.body.appendChild(ul);
-  })
-  */
-
-/*
-function renderMeals(meal) {
-  const ul = document.querySelector("ul");
-
-  meals.forEach((meal) => {
-    const li = document.createElement("li");
-    li.innerHTML = meal;
-    ul.appendChild(li);
-  })
-  document.body.appendChild(ul);
-};
-
-window.handleMealsRequest = async () => {
-  document.body.innerHTML = `
-  <h1>Meals</h1>
-  <ul></ul>`;
-
-    fetch('/api/meals')
-      .then(response => response.json())
-      .then(renderMeals);
-};
-*/
-
-  // make sure the backend api works before working with it here
-
-  // const mealsResponse = await fetch("/api/meals");
-  // const meals = await mealsResponse.json();
+// make sure the backend api works before working with it here

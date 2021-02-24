@@ -1,57 +1,11 @@
-// /* class from Alex */
-// window.handleMealRequest = params => {
-//   document.body.innerHTML = `
-//   <h1>Make a booking for meal with id ${params.id}</h1>
-//     <form action="../../api/reservations" method="post">
-//       <label for="name">Name:</label>
-//       <input type="text" id="name" name="name">
-//       <br><br>
-//
-//       <label for="email">Email:</label>
-//       <input type="text" id="email" name="email">
-//       <br><br>
-//
-//       <label for="number_of_guests">Number of guests:</label>
-//       <input type="int" id="number_of_guests" name="number_of_guests">
-//       <br><br>
-//
-//       <input type="submit" value="Submit">
-//     </form>`
-//
-//     const getMealResponse = await fetch(`/api/meals/${params.id}`);
-//    const getMeal = await getMealResponse.json();
-//
-//
-//     fetch(`api/meals/${params.id}`)
-//       .then(res => res.json());
-//       //.then(meal => console.log(meal)); //.then(meal => console.log(meal));
-//
-// };
-
-/*
-function getMealWithId(mealFromDB) {
-  const ul = document.createElement('ul');
-
-  mealFromDB.forEach(meal => {
-    console.log(typeof meal);
-    const li = document.createElement('li');
-    li.innerHTML = Object.entries(meal);
-    ul.appendChild(li);
-    document.body.appendChild(ul);
-  })
-};
-*/
-
-  window.handleMealRequest = async(params)=> {
+window.handleMealRequest = async(params)=> {
     const getMealResponse = await fetch(`/api/meals/${params.id}`);
     const meals = await getMealResponse.json();
     const mealById = meals[0];
-    console.log({mealById});
 
     const getReview = await fetch(`/api/reviews`);
     const reviewToRender = await getReview.json();
     const reviewById = reviewToRender.find(r => r.meal_id === r.id);
-    console.log('reviewById', reviewById);
 
     fetch(`/api/meals/${params.id}`)
       .then(res => res.json())
@@ -59,8 +13,6 @@ function getMealWithId(mealFromDB) {
         meal.map(m => {
           m.getReview = reviewToRender.filter(r => {
             r.meal_id === meal.id;
-            //return r;
-            console.log('r for review of the meal', r);
             const li = document.createElement('li');
             const ul = document.getElementById('review-content');
             li.innerHTML =
@@ -72,9 +24,6 @@ function getMealWithId(mealFromDB) {
             `;
             ul.appendChild(li);
           });
-
-          //meal.id === r.meal_id
-
         })
       })
 
@@ -142,19 +91,3 @@ function currentDate() {
   const d = new Date();
   document.getElementById('createdAt').value = d.toDateString();
 };
-
-
-
-
-/* original
-window.handleMealRequest = params => {
-  document.body.innerHTML = `
-  <h1>Meal with id ${params.id}</h1>
-    <form action="../../form_action.js" method="post">
-    <label for="name">title:</label>
-    <input type="text" id="title" name="title">
-
-    </form>
-  `;
-};
-*/

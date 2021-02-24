@@ -1,9 +1,4 @@
 window.handleReservationRequest = params => {
-
-  // const getReservationResponse = await fetch(`/api/reservations/${params.id}`);
-  // const reservations = await getReservationResponse.json();
-  // const reservation = reservations[0];
-
   document.body.innerHTML = `
   <h1>Reservation with id ${params.id}</h1>
 
